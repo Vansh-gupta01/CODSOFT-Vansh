@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+class NumberGuessingGame 
+{
+private:
+    int numbertobeguess;  
+
+public:
+    NumberGuessingGame()
+    {
+        int i=500;
+        srand(time(0));
+        numbertobeguess = rand() % i+ 1;
+    }
+
+    void play() 
+    {
+        int guessnumber;
+        
+        cout << "predict the number between 1 and 500: ";
+
+        while (true) {
+            cin >> guessnumber ;
+
+            if (guessnumber == numbertobeguess) {
+                cout << "Congratulations! You guessed the right number." << endl;
+                break;
+            } else if (guessnumber < numbertobeguess) {
+                cout << "Your guessed number is too low. Try again." << endl;
+            } else {
+                cout << "Your guessed number is too high. Try again." << endl;
+            }
+        }
+    }
+
+
+};
+
+int main() {
+    NumberGuessingGame game;
+    game.play();
+
+    return 0;
+}
