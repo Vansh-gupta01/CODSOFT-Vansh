@@ -1,0 +1,68 @@
+#include <iostream>
+
+using namespace std;
+
+class Calculator {
+public:
+    double number1, number2;
+
+    void getNumbers() {
+        cout << "Insert first number: ";
+        cin >> number1;
+        cout << "Insert second number: ";
+        cin >> number2;
+    }
+
+    double add() {
+        return number1 + number2;
+    }
+
+    double subtract() {
+        return number1 - number2;
+    }
+
+    double multiply() {
+        return number1 * number2;
+    }
+
+    double divide() {
+        if (number2 == 0) {
+            cout << "Error: Division by zero" << endl;
+            return 0;
+        }
+        return number1 / number2;
+    }
+};
+
+int main() {
+    Calculator calc;
+    char op;
+
+    calc.getNumbers();
+
+    cout << "Select operator (+, -, *, /): ";
+    cin >> op;
+
+    double CalcResult;
+    switch (op) {
+        case '+':
+            CalcResult = calc.add();
+            break;
+        case '-':
+            CalcResult = calc.subtract();
+            break;
+        case '*':
+            CalcResult = calc.multiply();
+            break;
+        case '/':
+            CalcResult = calc.divide();
+            break;
+        default:
+            cout << "Invalid operator" << endl;
+            return 0;
+    }
+
+    cout << "Result: " << CalcResult << endl;
+
+    return 0;
+}
